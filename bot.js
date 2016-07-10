@@ -5,7 +5,7 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegexsts = /Dr. Q, status(!|.)?/;  botRegexBio = /(F|f)rom a biological/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
+      botRegexsts = /Dr. Q, status(!|.)?/;  botRegexBio = /(F|f)rom a biological/i;botRegexkun = /(-|/s)(K|k)(U|u)(N|n)/;botRegexRules = /^\/rules/
       botRegexAd=/^\/advance/;botRegexGTA = /^\/gta/; botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
       botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/; botRegexSh = /^\/shrug/; botRegexWk = /^\/users/; botRegexCC = /^\/cc/;
       botRegexSiege = /^\/siege/; botRegexOW = /^\/overwatch/; 
@@ -25,9 +25,9 @@ function respond() {
     this.res.end();
   } 
   
-  else if(request.text && botRegexOW.test(request.text)) {
+  else if(request.text && botRegexkun.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("http://kt-media.knowtechie.netdna-cdn.com/wp-content/uploads/2016/03/Overwatch-Tracer-Over-The-Shoulder.png");
+    postMessage("Weeaboo");
     this.res.end();
   } 
   else if(request.text && botRegexSalt.test(request.text)) {
