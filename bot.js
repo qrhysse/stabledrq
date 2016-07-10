@@ -5,7 +5,7 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/hello/;  botRegexBIO = /[F|f]rom a biological/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
+      botRegexEmo = /Dr. Q, status report!\?/;  botRegexBio = /[F|f]rom a biological/; botRegexKun = /(-|/s)(K|k)(U|u)(N|n)/;botRegexRules = /^\/rules/
       botRegexAd=/^\/advance/;botRegexGTA = /^\/gta/; botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
       botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/; botRegexSh = /^\/shrug/; botRegexWk = /^\/users/; botRegexCC = /^\/cc/;
       botRegexSiege = /^\/siege/; botRegexOW = /^\/overwatch/; 
@@ -19,15 +19,15 @@ function respond() {
     postMessage(cool());
     this.res.end();
   } 
-  else if(request.text && botRegexBIO.test(request.text)) {
+  else if(request.text && botRegexBio.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://google.com");
     this.res.end();
   } 
   
-  else if(request.text && botRegexOW.test(request.text)) {
+  else if(request.text && botRegexkun.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("http://kt-media.knowtechie.netdna-cdn.com/wp-content/uploads/2016/03/Overwatch-Tracer-Over-The-Shoulder.png");
+    postMessage("Goddamn Weeaboo");
     this.res.end();
   } 
   else if(request.text && botRegexSalt.test(request.text)) {
