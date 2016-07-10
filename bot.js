@@ -3,63 +3,33 @@ var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 
-var botPatience = 0;
-
 function respond() {
-    var request = JSON.parse(this.req.chunks[0]),
-        botRegexsts = /Dr. Q, status(!|.)?/;
-        botRegexBio = /(F|f)rom a biological/;
-        botRegexWee = /(KUN|kun)/;
-        botRegexBTW = /Get back to work, Dr. Q/;
-    
-    if(botPatience < 3){
-        if(request.text && botRegexsts.test(request.text)) {
-          this.res.writeHead(200);
-          postMessage(cool());
-          botPatience++;
-          this.res.end();
-        } 
-        
-        else if(request.text && botRegexBio.test(request.text)) {
-          this.res.writeHead(200);
-          postMessage("http://google.com");
-          botPatience++;
-          this.res.end();
-        } 
-        
-        
-        else if(request.text && botRegexWee.test(request.text)) {
-          this.res.writeHead(200);
-          postMessage("Weeaboo");
-          botPatience++;
-          this.res.end();
-        } 
-        
-        else {
-        console.log("don't care");
-        this.res.writeHead(200);
-        this.res.end();
-        }
-    }
-    
-    else if(botPatience >= 3 && botPatience <= 5){
-      this.res.writeHead(200);
-      postMessage("d[-_-]b );
-      this.res.end();
-    }
-    
-    else if(request.text && botRegexBTW.test(request.text)) {
-         this.res.writeHead(200);
-         postMessage("okay");
-         botPatience = 0;
-         this.res.end();
-        }
-    
-    else {
-      console.log("don't care");
-      this.res.writeHead(200);
-      this.res.end();
-    }
+  var request = JSON.parse(this.req.chunks[0]),
+      botRegexsts = /Dr. Q, status(!|.)?/; 
+      botRegexBio = /(F|f)rom a biological/;
+      botRegexWee = /(KUN|kun)/;
+  if(request.text && botRegexsts.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage(cool());
+    this.res.end();
+  } 
+  else if(request.text && botRegexBio.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("http://google.com");
+    this.res.end();
+  } 
+  
+  else if(request.text && botRegexWee.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("Weeaboo");
+    this.res.end();
+  } 
+  
+  else {
+    console.log("don't care");
+    this.res.writeHead(200);
+    this.res.end();
+  }
 }
 
 function postMessage(response) {
