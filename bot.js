@@ -30,11 +30,7 @@ function respond() {
     postMessage("Weeaboo");
     this.res.end();
   } 
-  else if(request.text && botRegexSalt.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("https://i.imgur.com/B5BSVqH.png");
-    this.res.end();
-  } 
+  
   else if(request.text && botRegexAd.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://www.hackcollege.com/wp-content/uploads/2013/02/kno_advance.jpg");
