@@ -7,23 +7,17 @@ var botPatience = 0;
 
 function respond() {
     var request = JSON.parse(this.req.chunks[0]),
-        botRegexsts = /Dr. Q, status(!|.)?/; 
-        botRegexpat = /^\/patience/;
+        botRegexsts = /Dr. Q, status(!|.)?/;
         botRegexBio = /(F|f)rom a biological/;
         botRegexWee = /(KUN|kun)/;
         botRegexBTW = /Get back to work, Dr. Q/;
+        
     if(request.text && botRegexsts.test(request.text) && botPatience < 3) {
       this.res.writeHead(200);
       postMessage(cool());
       botPatience++;
       this.res.end();
     } 
-    
-    else if(request.text && botRegexpat.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage(botPatience);
-    this.res.end();
-    }
     
     else if(request.text && botRegexBio.test(request.text) && botPatience < 3) {
       this.res.writeHead(200);
@@ -49,7 +43,7 @@ function respond() {
     
     else if(botPatience >= 3 && botPatience <= 5){
       this.res.writeHead(200);
-      postMessage(""d[-_-]b "");
+      postMessage("d[-_-]b );
       this.res.end();
     }
     
