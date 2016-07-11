@@ -36,10 +36,10 @@ function respond() {
   
   else if(request.text && botRegexjok.test(request.text)) {
     var req = request.text;
-    var repl = req.replace("I'm", "Hi");
-    var joke = repl + " jokejoke.";
+    // var repl = req.replace("I'm", "Hi");
+    // var joke = repl + " jokejoke.";
     this.res.writeHead(200);
-    postMessage(repl);
+    postMessage(req);
     this.res.end();
     
     // if(req.includes("dad")){
