@@ -4,10 +4,10 @@ var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 
 function respond() {
-  var request = JSON.parse(this.req.chunks[0]),
-      botRegexsts = /Dr. Q, status(!|.)?/i; 
-      botRegexBio = /from a biological/i;
-      botRegexWee = /(-|\s)kun/i;
+  var request = JSON.parse(this.req.chunks[0]);
+  var botRegexsts = /Dr. Q, status(!|.)?/i;
+  var botRegexBio = /from a biological/i;
+  var botRegexWee = /(-|\s)kun/i;
       //botRegexDad = /(^dad$|\sdad)/i;
       // botRegexDad = /I'm/;
       
@@ -64,9 +64,9 @@ function respond() {
 }
 
 function postMessage(response) {
-  var botResponse,options, body, botReq;
+  var botResponse, options, body, botReq;
 
-  botResponse = response
+  botResponse = response;
 
   options = {
     hostname: 'api.groupme.com',
