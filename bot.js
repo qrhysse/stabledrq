@@ -9,7 +9,7 @@ function respond() {
   var botRegexBio = /from a biological/i;
   var botRegexWee = /(-|\s)kun/i;
   var botRegexDad = /(^dad$|\sdad)/i;
-  var botRegexDad2 = /I'm/;
+  var botRegexDad2 = /\bI'?\s*a?m\b/g;  // I am, I'm, Im, or Iam
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
