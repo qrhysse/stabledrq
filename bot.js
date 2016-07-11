@@ -35,10 +35,11 @@ function respond() {
   }
   
   else if(request.text && botRegexjok.test(request.text)) {
-    var repl = request.text.replace("I'm", "Hi");
+    var req = request.text;
+    var repl = req.replace("I'm", "Hi");
     var joke = repl + " I'm dad.";
     
-    if(request.text.includes("dad")){
+    if(req.includes("dad")){
       console.log("don't care");
       this.res.writeHead(200);
       this.res.end();
