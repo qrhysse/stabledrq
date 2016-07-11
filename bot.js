@@ -8,7 +8,7 @@ function respond() {
       botRegexsts = /Dr. Q, status(!|.)?/i; 
       botRegexBio = /from a biological/i;
       botRegexWee = /(-|\s)kun/i;
-      botRegexDad = /[^\w]dad/i;
+      botRegexDad = /[^\w]?dad/i;
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
