@@ -3,13 +3,13 @@ var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 
-function respond() {
+function respond() { 
   var request = JSON.parse(this.req.chunks[0]);
   var botRegexsts = /Dr. Q, status(!|.)?/i;
   var botRegexBio = /from a biological/i;
   var botRegexWee = /(-|\s)kun/i;
   var botRegexDad = /(^dad$|\sdad)/i;
-  // var botRegexDad2 = /\bI'?\s*a?m\b/g;  // I am, I'm, Im, or Iam
+  var botRegexDad2 = /\bI'?\s*a?m\b/g;  // I am, I'm, Im, or Iam
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
@@ -34,26 +34,27 @@ function respond() {
     this.res.end();
   }
   
-  // else if(request.text && botRegexDad2.test(request.text)) {
-  //   var req = request.text;
-  //   var repl = req.replace("I'm", "Hi");
-  //   var joke = repl + " I'm Dad.";
-  //   // this.res.writeHead(200);
-  //   // postMessage("Hello");
-  //   // this.res.end();
+  else if(request.text && botRegexDad2.test(request.text)) {
+    var req = request.text;
+    var repl = req.replace("I'm", "Hi");
+    var joke = repl + " I'm Dad.";
+    console.log("Joke activated.");
+    console.log(joke);
+    // this.res.writeHead(200);
+    // postMessage("Hello");
+    // this.res.end();
     
-  //   if(req.includes("Dad")){
-  //     console.log("don't care");
-  //     this.res.writeHead(200);
-  //     this.res.end();
-  //   }
-      
-  //   else {
-  //     this.res.writeHead(200);
-  //     postMessage(joke);
-  //     this.res.end();
-  //   }
-  // }
+    // if(req.includes("Dad")){
+    if(req.indexOf("Dad") > -1){
+      console.log("don't care");
+      this.res.writeHead(200);
+      this.res.end();
+    } else {
+      this.res.writeHead(200);
+      postMessage(joke);
+      this.res.end();
+    }
+  }
   
   else {
     console.log("don't care");
