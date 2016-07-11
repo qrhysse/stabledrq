@@ -41,7 +41,7 @@ function respond() {
     //var joke = repl + ", I'm Dad.";
     var joke = "Hi " + botRegexDadJoke($2) + ", I'm dad.";
     console.log("Joke activated.");
-    console.log(botRegexDadJoke);
+    //console.log(botRegexDadJoke);
     console.log(joke);
     
     // If the dad joke above contains the word dad
