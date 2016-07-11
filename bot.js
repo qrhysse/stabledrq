@@ -38,16 +38,16 @@ function respond() {
     var repl = request.text.replace("I'm", "Hi");
     var joke = repl + " I'm dad.";
     
-    if(request.text !== joke ){
+    if(request.text.includes("dad")){
+      console.log("don't care");
       this.res.writeHead(200);
-      postMessage(joke);
       this.res.end();
     }
     
     else {
-    console.log("don't care");
-    this.res.writeHead(200);
-    this.res.end();
+      this.res.writeHead(200);
+      postMessage(joke);
+      this.res.end();
     }
     
   }
