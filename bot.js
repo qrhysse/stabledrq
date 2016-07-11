@@ -39,7 +39,7 @@ function respond() {
     // var repl = req.replace("I'm", "Hi");
     // var joke = repl + " jokejoke.";
     this.res.writeHead(200);
-    postMessage(req);
+    postMessage("Hello");
     this.res.end();
     
     // if(req.includes("dad")){
