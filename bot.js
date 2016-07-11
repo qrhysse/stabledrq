@@ -44,7 +44,7 @@ function respond() {
     var jokeVariable = content.split(/ I'm{0,1}/);
     var joke = "Hi" + jokeVariable[jokeVariable.length-1] + ", I'm dad.";
     console.log("Joke activated.");
-    console.log(botRegexDadJoke);
+    console.log(botRegexDadJoke(1$));
     console.log(joke);
     
     // If the dad joke above contains the word dad
