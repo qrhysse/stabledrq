@@ -40,7 +40,9 @@ function respond() {
     //var repl = req.replace(botRegexDadJoke, "Hi");
     //var joke = repl + ", I'm Dad.";
     //var joke = "Hi " + botRegexDadJoke($2) + ", I'm dad.";
-    var joke = request.text.substring(0, request.text.indexOf(botRegexDadJoke));
+    Like var content = request.text;
+    console.log(content);
+    var joke = content.text.substring(0, content.text.indexOf(botRegexDadJoke));
     console.log("Joke activated.");
     //console.log(botRegexDadJoke);
     console.log(joke);
