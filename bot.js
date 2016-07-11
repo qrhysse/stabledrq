@@ -8,7 +8,8 @@ function respond() {
       botRegexsts = /Dr. Q, status(!|.)?/i; 
       botRegexBio = /from a biological/i;
       botRegexWee = /(-|\s)kun/i;
-      botRegexDad = /(^dad$|\sdad)/i;
+      //botRegexDad = /(^dad$|\sdad)/i;
+      botRegexjok = /I'm/;
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
@@ -27,11 +28,29 @@ function respond() {
     this.res.end();
   } 
   
-    else if(request.text && botRegexDad.test(request.text) && request.text !== "Hi Dad, I'm Dad") {
+    else if(request.text && botRegexDad.test(request.text) && request.text !== "Hi Dad, I'm Dad.") {
     this.res.writeHead(200);
     postMessage("Hi Dad, I'm Dad");
     this.res.end();
-  } 
+  }
+  
+  else if(request.text && botRegexjok.test(request.text)) {
+    var repl = request.text.replace("I'm", "Hi");
+    var joke = repl + " I'm dad.";
+    
+    if(request.text !== joke ){
+      this.res.writeHead(200);
+      postMessage(joke);
+      this.res.end();
+    }
+    
+    else {
+    console.log("don't care");
+    this.res.writeHead(200);
+    this.res.end();
+    }
+    
+  }
   
   else {
     console.log("don't care");
