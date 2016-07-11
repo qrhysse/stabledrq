@@ -37,19 +37,22 @@ function respond() {
   else if(request.text && botRegexjok.test(request.text)) {
     var req = request.text;
     var repl = req.replace("I'm", "Hi");
-    var joke = repl + " I'm dad.";
+    var joke = repl + " jokejoke.";
+    this.res.writeHead(200);
+    postMessage(joke);
+    this.res.end();
     
-    if(req.includes("dad")){
-      console.log("don't care");
-      this.res.writeHead(200);
-      this.res.end();
-    }
+    // if(req.includes("dad")){
+    //   console.log("don't care");
+    //   this.res.writeHead(200);
+    //   this.res.end();
+    // }
     
-    else {
-      this.res.writeHead(200);
-      postMessage(joke);
-      this.res.end();
-    }
+    // else {
+    //   this.res.writeHead(200);
+    //   postMessage(joke);
+    //   this.res.end();
+    // }
     
   }
   
