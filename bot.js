@@ -27,7 +27,7 @@ function respond() {
     this.res.end();
   } 
   
-    else if(request.text && botRegexDad.test(request.text)) {
+    else if(request.text && botRegexDad.test(request.text) && !== "Hi Dad, I'm Dad") {
     this.res.writeHead(200);
     postMessage("Hi Dad, I'm Dad");
     this.res.end();
