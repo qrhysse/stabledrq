@@ -21,7 +21,7 @@ function respond() {
   
   else if(request.text && botRegexWee.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("Weeaboo");
+    postMessage("Goddamn Weeaboo");
     this.res.end();
   } 
   
