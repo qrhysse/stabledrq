@@ -7,7 +7,8 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegexsts = /Dr. Q, status(!|.)?/; 
       botRegexBio = /(F|f)rom a biological/;
-      botRegexWee = /(KUN|kun)/;
+      botRegexWee = /-(KUN|kun)/;
+      
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
