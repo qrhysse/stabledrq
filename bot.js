@@ -9,7 +9,7 @@ function respond() {
       botRegexBio = /from a biological/i;
       botRegexWee = /(-|\s)kun/i;
       //botRegexDad = /(^dad$|\sdad)/i;
-      botRegexjok = /I'm/;
+      botRegexDad = /I'm/;
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
@@ -28,13 +28,13 @@ function respond() {
     this.res.end();
   } 
   
-    else if(request.text && botRegexDad.test(request.text) && request.text !== "Hi Dad, I'm Dad.") {
-    this.res.writeHead(200);
-    postMessage("Hi Dad, I'm Dad");
-    this.res.end();
-  }
+  //   else if(request.text && botRegexDad.test(request.text) && request.text !== "Hi Dad, I'm Dad.") {
+  //   this.res.writeHead(200);
+  //   postMessage("Hi Dad, I'm Dad");
+  //   this.res.end();
+  // }
   
-  else if(request.text && botRegexjok.test(request.text)) {
+  else if(request.text && botRegexDad.test(request.text)) {
     //var req = request.text;
     // var repl = req.replace("I'm", "Hi");
     // var joke = repl + " jokejoke.";
