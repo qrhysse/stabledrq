@@ -36,7 +36,7 @@ function respond() {
   
   else if(request.text && botRegexDadJoke.test(request.text)) {
     var req = request.text;
-    var repl = req.replace("I'm", "Hi");
+    var repl = req.replace(botRegexDadJoke, "Hi");
     var joke = repl + ", I'm Dad.";
     console.log("Joke activated.");
     console.log(joke);
