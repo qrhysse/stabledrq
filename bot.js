@@ -5,9 +5,10 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegexsts = /Dr. Q, status(!|.)?/; 
-      botRegexBio = /(F|f)rom a biological/;
-      botRegexWee = /-(KUN|kun)/;
+      botRegexsts = /Dr. Q, status(!|.)?/i; 
+      botRegexBio = /from a biological/i;
+      botRegexWee = /(-|\s)kun/i;
+      botRegexDad = /\sdad/i;
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
@@ -23,6 +24,12 @@ function respond() {
   else if(request.text && botRegexWee.test(request.text)) {
     this.res.writeHead(200);
     postMessage("Goddamn Weeaboo");
+    this.res.end();
+  } 
+  
+    else if(request.text && botRegexDad.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("Hi Dad, I'm Dad");
     this.res.end();
   } 
   
