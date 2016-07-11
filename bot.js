@@ -9,7 +9,7 @@ function respond() {
       botRegexBio = /from a biological/i;
       botRegexWee = /(-|\s)kun/i;
       //botRegexDad = /(^dad$|\sdad)/i;
-      botRegexDad = /I'm/;
+      // botRegexDad = /I'm/;
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
@@ -34,27 +34,27 @@ function respond() {
   //   this.res.end();
   // }
   
-  else if(request.text && botRegexDad.test(request.text)) {
-    var req = request.text;
-    var repl = req.replace("I'm", "Hi");
-    var joke = repl + " I'm Dad.";
-    // this.res.writeHead(200);
-    // postMessage("Hello");
-    // this.res.end();
+  // else if(request.text && botRegexDad.test(request.text)) {
+  //   var req = request.text;
+  //   var repl = req.replace("I'm", "Hi");
+  //   var joke = repl + " I'm Dad.";
+  //   // this.res.writeHead(200);
+  //   // postMessage("Hello");
+  //   // this.res.end();
     
-    if(req.includes("Dad")){
-      console.log("don't care");
-      this.res.writeHead(200);
-      this.res.end();
-    }
+  //   // if(req.includes("Dad")){
+  //   //   console.log("don't care");
+  //   //   this.res.writeHead(200);
+  //   //   this.res.end();
+  //   // }
     
-    else {
-      this.res.writeHead(200);
-      postMessage(joke);
-      this.res.end();
-    }
+  //   // else {
+  //   //   this.res.writeHead(200);
+  //   //   postMessage(joke);
+  //   //   this.res.end();
+  //   // }
     
-  }
+  // }
   
   else {
     console.log("don't care");
