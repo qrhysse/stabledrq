@@ -6,7 +6,7 @@ var botID = process.env.BOT_ID;
 function respond() { 
   var request = JSON.parse(this.req.chunks[0]);
   var botRegexsts = /Dr. Q, status(!|.)?/i;
-  var botRegexBio = /from a biological/i;
+  var botRegexBio = /from a biological perspective,?/i;
   var botRegexWee = /(-|\s)kun/i;
   var botRegexDad = /(^dad$|\sdad)/i;
   //var botRegexDadJoke = /(\bI'?\s*a?m\b)/g; // I am, I'm, Im, or Iam
@@ -19,12 +19,13 @@ function respond() {
   } 
   else if(request.text && botRegexBio.test(request.text)) {
     var req = String(request.text);
-    var helpVariable = req.split(/from a biological perspective,/i);
+    var helpVariable = req.split(/from a biological perspective,?/i);
     var help = helpVariable[jokeVariable.length-1];
     var linkHelp = help.replace(" ", "+");
     linkHelp = linkHelp.replace(",", "%2C");
     linkHelp = linkHelp.replace("'", "%27m");
     console.log("Help activated.");
+    console.log(linkHelp);
     this.res.writeHead(200);
     postMessage("http://google.com/#safe=off&q="+linkHelp);
     this.res.end();
