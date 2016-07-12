@@ -9,11 +9,11 @@ function respond() {
   var botRegexBio = /from a biological/i;
   var botRegexWee = /(-|\s)kun/i;
   var botRegexDad = /(^dad$|\sdad)/i;
-  var botRegexRip = /(^rip$|\srip)/i;
+  var botRegexRip = /(^r\.?i\.?p\.?$|\sr\.?i\.?p\.?)/i;
   var botRegexAlex = /(^actually$|\sactually)/i;
   var botRegexSandwich = /(^sandwich$|\ssandwich)/i;
   //var botRegexDadJoke = /(\bI'?\s*a?m\b)/g; // I am, I'm, Im, or Iam
-  var botRegexDadJoke = /.*?(i'm|im)\b/i;
+  var botRegexDadJoke = /(^i'?m|\si'?m\s*)/i;
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
@@ -79,27 +79,28 @@ function respond() {
     //var joke = "Hi " + botRegexDadJoke($2) + ", I'm dad.";
 
     var content = request.text;
-    var contentLowercase = content.toLowerCase();
-    var contentArray = content.split(' ');
-    var jokeContent;
-    var contentLCArray = contentLowercase.split(' ');
-    var firstUpperIm = contentLCArray.indexOf("i'm");
-    var firstLowerIm = contentLCArray.indexOf("im");
-    var trueIndex = -69;
+    var jokeVariable = content.replace(/.*?i'?m/i, "" );
+    var joke = "Hi" + jokeVariable + ", I'm Dad.";
+    // var contentLowercase = content.toLowerCase();
+    // var contentArray = content.split(' ');
+    // var jokeContent;
+    // var contentLCArray = contentLowercase.split(' ');
+    // var firstUpperIm = contentLCArray.indexOf("i'm");
+    // var firstLowerIm = contentLCArray.indexOf("im");
+    // var trueIndex = -69;
 
-    if( (firstUpperIm !== firstLowerIm ) ) {
-      if( firstUpperIm > -1 ) {
-        trueIndex = firstUpperIm;
-      } else if( firstLowerIm > -1 ) {
-        trueIndex = firstLowerIm;
-      }
-      if( trueIndex != -69 ) {
-        contentArray.splice(0, trueIndex+1);
-        jokeContent = contentArray.join(' ');
-      }
-    }
+    // if( (firstUpperIm !== firstLowerIm ) ) {
+    //   if( firstUpperIm > -1 ) {
+    //     trueIndex = firstUpperIm;
+    //   } else if( firstLowerIm > -1 ) {
+    //     trueIndex = firstLowerIm;
+    //   }
+    //   if( trueIndex != -69 ) {
+    //     contentArray.splice(0, trueIndex+1);
+    //     jokeContent = contentArray.join(' ');
+    //   }
+    // }
 
-    var joke = "Hi " + jokeContent + ", I'm Dad.";
     console.log("Joke activated.");
     console.log(joke);
     
