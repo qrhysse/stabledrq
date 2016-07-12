@@ -18,8 +18,10 @@ function respond() {
     this.res.end();
   } 
   else if(request.text && botRegexBio.test(request.text)) {
+    var link = request.text;
+    link = link.replace(" ", "+");
     this.res.writeHead(200);
-    postMessage("https://google.com");
+    postMessage("https://www.google.com/#safe=off&q="+link);
     this.res.end();
   //   var req = String(request.text);
   //   var helpVariable = req.split(/from a biological perspective,?/i);
