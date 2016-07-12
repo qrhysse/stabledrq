@@ -19,7 +19,7 @@ function respond() {
   } 
   else if(request.text && botRegexBio.test(request.text)) {
     var link = request.text;
-    link = link.replace(/ /, "+");
+    link = link.replace(/ /g, "+");
     this.res.writeHead(200);
     postMessage("https://www.google.com/#safe=off&q="+link);
     this.res.end();
