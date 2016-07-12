@@ -46,7 +46,7 @@ function respond() {
   
   else if(request.text && botRegexDad.test(request.text) && request.name !== "Dr. Q") {
     this.res.writeHead(200);
-    postMessage("Hi Dad, I'm Dad");
+    postMessage("I'm not your fucking Dad.");
     this.res.end();
   }
   
