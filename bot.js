@@ -6,25 +6,27 @@ var botID = process.env.BOT_ID;
 function respond() { 
   var request = JSON.parse(this.req.chunks[0]);
   var botRegexsts = /Dr. Q, status(!|.)?/i;
-  var botRegexBio = /from a biological perspective,?/i;
+  var botRegexBio = /from a biological/i;
   var botRegexWee = /(-|\s)kun/i;
   var botRegexDad = /(^dad$|\sdad)/i;
-  var botRegexRip = /(^rip$|\srip)/i;
+  var botRegexRip = /(^r\.?i\.?p\.?$|\sr\.?i\.?p\.?)/i;
+  var botRegexAlex = /(^actually$|\sactually)/i;
   //var botRegexDadJoke = /(\bI'?\s*a?m\b)/g; // I am, I'm, Im, or Iam
-  var botRegexDadJoke = /.*?(i'm|im)\b/i;
+  var botRegexDadJoke = /(^i'm|^im)\b/i;
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(cool());
+    postMessage(cool(), false);
     this.res.end();
   } 
   else if(request.text && botRegexBio.test(request.text)) {
     var link = request.text;
-    link = link.replace(/from a biological perspective,?/i, "")
+    link = link.replace(/from a biological (perspective|standpoint),?/i, "")
     link = link.replace(/ /g, "+");
+    link = link.replace("%", "%25");
 
     this.res.writeHead(200);
-    postMessage("https://www.google.com/#safe=off&q="+link);
+    postMessage("https://www.google.com/#safe=off&q="+link, true);
     this.res.end();
   //   var req = String(request.text);
   //   var helpVariable = req.split(/from a biological perspective,?/i);
@@ -41,19 +43,25 @@ function respond() {
   
   else if(request.text && botRegexWee.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("Goddamn Weeaboo");
+    postMessage("Goddamn Weeaboo", false);
     this.res.end();
   } 
+
+  else if( request.text && botRegexAlex.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("https://s32.postimg.org/ld1h4212t/alex.png", false);
+    this.res.end();
+  }
   
   else if(request.text && botRegexDad.test(request.text) && request.name !== "Dr. Q") {
     this.res.writeHead(200);
-    postMessage("I'm not your fucking Dad.");
+    postMessage("I'm not your fucking Dad.", false);
     this.res.end();
   }
 
   else if(request.text && botRegexRip.test(request.text) && request.name !== "Dr. Q") {
     this.res.writeHead(200);
-    postMessage("https://s31.postimg.org/pjuh7qfxn/RIP.jpg");
+    postMessage("https://s31.postimg.org/pjuh7qfxn/RIP.jpg", false);
     this.res.end();
   }
   
@@ -75,7 +83,7 @@ function respond() {
       this.res.end();
     } else {
       this.res.writeHead(200);
-      postMessage(joke);
+      postMessage(joke, false);
       this.res.end();
     }
   }
@@ -87,10 +95,13 @@ function respond() {
   }
 }
 
-function postMessage(response) {
+function postMessage(response, isLink) {
   var botResponse, options, body, botReq;
 
   botResponse = response;
+  if( isLink == false ) {
+    botResponse = botResponse.replace(/%/g, " percent");
+  }
 
   options = {
     hostname: 'api.groupme.com',
