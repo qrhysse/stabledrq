@@ -57,7 +57,7 @@ function respond() {
     this.res.end();
   }
   
-  else if(request.text && botRegexDadJoke.test(request.text)) {
+  else if(request.text && botRegexDadJoke.test(request.text) && request.name !== "Dr. Q") {
     //var req = request.text;
     //var repl = req.replace(botRegexDadJoke, "Hi");
     //var joke = repl + ", I'm Dad.";
