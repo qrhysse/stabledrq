@@ -10,7 +10,7 @@ function respond() {
   var botRegexWee = /(-|\s)kun/i;
   var botRegexDad = /(^dad$|\sdad)/i;
   //var botRegexDadJoke = /(\bI'?\s*a?m\b)/g; // I am, I'm, Im, or Iam
-  //var botRegexDadJoke = /.*?(i'm|im)/i;
+  var botRegexDadJoke = /.*?(i'm|im)/i;
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
