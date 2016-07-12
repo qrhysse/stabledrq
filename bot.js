@@ -9,6 +9,7 @@ function respond() {
   var botRegexBio = /from a biological perspective,?/i;
   var botRegexWee = /(-|\s)kun/i;
   var botRegexDad = /(^dad$|\sdad)/i;
+  var botRegexRip = /(^rip$|\srip)/i;
   //var botRegexDadJoke = /(\bI'?\s*a?m\b)/g; // I am, I'm, Im, or Iam
   var botRegexDadJoke = /.*?(i'm|im)/i;
       
@@ -47,6 +48,12 @@ function respond() {
   else if(request.text && botRegexDad.test(request.text) && request.name !== "Dr. Q") {
     this.res.writeHead(200);
     postMessage("I'm not your fucking Dad.");
+    this.res.end();
+  }
+
+  else if(request.text && botRegexRip.test(request.text) && request.name !== "Dr. Q") {
+    this.res.writeHead(200);
+    postMessage(":coffin:");
     this.res.end();
   }
   
