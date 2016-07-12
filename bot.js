@@ -11,7 +11,7 @@ function respond() {
   var botRegexDad = /(^dad$|\sdad)/i;
   var botRegexRip = /(^rip$|\srip)/i;
   //var botRegexDadJoke = /(\bI'?\s*a?m\b)/g; // I am, I'm, Im, or Iam
-  var botRegexDadJoke = /.*?(i'm|im)/i;
+  var botRegexDadJoke = /.*?(i'm|im)\b/i;
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
