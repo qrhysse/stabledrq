@@ -10,7 +10,7 @@ function respond() {
   var botRegexWee = /(-|\s)kun/i;
   var botRegexDad = /(^dad$|\sdad)/i;
   //var botRegexDadJoke = /(\bI'?\s*a?m\b)/g; // I am, I'm, Im, or Iam
-  var botRegexDadJoke = /(.*I'm)(.*)/i;
+  var botRegexDadJoke = /.*?(i'm|im)/i;
       
   if(request.text && botRegexsts.test(request.text)) {
     this.res.writeHead(200);
@@ -44,7 +44,7 @@ function respond() {
     var jokeVariable = content.split(/ I'm{0,1}/);
     var joke = "Hi" + jokeVariable[jokeVariable.length-1] + ", I'm dad.";
     console.log("Joke activated.");
-    console.log(botRegexDadJoke(1$));
+    //console.log(botRegexDadJoke);
     console.log(joke);
     
     // If the dad joke above contains the word dad
