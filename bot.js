@@ -42,7 +42,7 @@ function respond() {
     //var joke = "Hi " + botRegexDadJoke($2) + ", I'm dad.";
     var content = String(request.text);
     var jokeVariable = content.split(/.*?(i'm|im)/i);
-    var joke = "Hi" + jokeVariable[jokeVariable.length-1] + ", I'm dad.";
+    var joke = "Hi" + jokeVariable[jokeVariable.length-1] + ", I'm Dad.";
     console.log("Joke activated.");
     //console.log(botRegexDadJoke);
     console.log(joke);
