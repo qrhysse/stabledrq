@@ -17,7 +17,10 @@ function respond() {
     postMessage(cool());
     this.res.end();
   } 
-  // else if(request.text && botRegexBio.test(request.text)) {
+  else if(request.text && botRegexBio.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("https://google.com");
+    this.res.end();
   //   var req = String(request.text);
   //   var helpVariable = req.split(/from a biological perspective,?/i);
   //   var help = helpVariable[jokeVariable.length-1];
@@ -29,7 +32,7 @@ function respond() {
   //   this.res.writeHead(200);
   //   postMessage("http://google.com/#safe=off&q="+linkHelp);
   //   this.res.end();
-  // } 
+  } 
   
   else if(request.text && botRegexWee.test(request.text)) {
     this.res.writeHead(200);
@@ -52,7 +55,6 @@ function respond() {
     var jokeVariable = content.split(/.*?(i'm|im)/i);
     var joke = "Hi" + jokeVariable[jokeVariable.length-1] + ", I'm Dad.";
     console.log("Joke activated.");
-    //console.log(botRegexDadJoke);
     console.log(joke);
     
     // If the dad joke above contains the word dad
